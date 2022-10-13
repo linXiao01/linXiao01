@@ -9,12 +9,29 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link rel="stylesheet" href="./css/login.css">
 
+    <script type="text/javascript">
+        //页面加载完成之后
+        $(function() {
+
+            //用于页面加载时判断当前是否是注册块
+            // alert("Please enter");
+            var obj = document.getElementById("regist-btn");
+            var flag1 = $(obj).attr('flag1');
+            // alert(obj);
+            // alert(flag1);
+            if (flag1) {
+                $(".pre-box").css("transform", "translateX(100%)")
+                $(".pre-box").css("background-color", "#c9e0ed")
+                $(".pre-img").attr("src", "./img/login/regist.jpg")
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="login-box">
         <div class="pre-box">
             <div class="img-box">
-                <img src="./img/login/login.jpg" alt="">
+                <img class="pre-img" src="./img/login/login.jpg" alt="">
             </div>
         </div>
         <div class="regist-form">
@@ -73,13 +90,13 @@
             if(flag){
                 $(".pre-box").css("transform","translateX(100%)")
                 $(".pre-box").css("background-color","#c9e0ed")
-                $("img").attr("src","./img/login/regist.jpg")
+                $(".pre-img").attr("src","./img/login/regist.jpg")
 
                 
             }else{
                 $(".pre-box").css("transform","translateX(0%)")
                 $(".pre-box").css("background-color","#edd4dc")
-                $("img").attr("src","./img/login/login.jpg")
+                $(".pre-img").attr("src","./img/login/login.jpg")
             }
             flag=!flag
         }
