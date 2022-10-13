@@ -5,23 +5,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
+
+
 
 /* 公共样式 */
 :root{
     /* 颜色 */
-     /* 颜色 */
-     --body-color: #e4e9f7;
-     --sidebar-color: #fff;
-     --primary-color: #695cfe;
-     --primary-color-light: #f6f5ff;
-     --toggle-color: #ddd;
-     --text-color: #707070;
- 
-     /* 过渡效果 */
-     --tran-02: all 0.2s ease;
-     --tran-03: all 0.3s ease;
+    /* 颜色 */
+    --body-color: #fff;
+    --sidebar-color: #fff;
+    --primary-color: #695cfe;
+    --primary-color-light: #f6f5ff;
+    --toggle-color: #ddd;
+    --text-color: #707070;
+
+    --a-color:black;
+    --topbar-color:#fff;
+
+    /* 过渡效果 */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
 }
 
 /* 设置body */
@@ -31,18 +35,22 @@ body{
     transition: var(--tran-03);
 }
 
-
+.acolor{
+    color: var(--a-color);
+}
 
 
 /* 使用js为body添加class */
 /* 当body标签拥有dark类名的时候的样式 */
 body.dark{
+    --a-color:#fff;
+    --topbar-color:black;
     --body-color:#18191a;
     --sidebar-color:#242526;
     --primary-color:#3a3b3c;
     --primary-color-light:#3a3b3c;
     --toggle-color:#fff;
-    --text-color:#ccc;
+    --text-color:#fff;
 }
 
 
@@ -108,7 +116,7 @@ body.dark{
 
 /* 当关闭时，字完全消失 */
 .sidebar.close .text{
-    opacity: 0; 
+    opacity: 0;
 }
 
 /* header部分样式 */
@@ -203,11 +211,11 @@ body.dark .sidebar header .toggle{
     background-color: transparent;
     display: flex;
     align-items: center;
-height: 100%;
-width: 100%;
-border-radius: 6px;
-text-decoration: none;
-transition: var(--tran-03);
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
 }
 
 .sidebar li a:hover{
@@ -325,7 +333,7 @@ body.dark .switch::before{
     width: 100%;
     padding-left: 10px;
     height: 50px;
-    background-color: skyblue;
+    background-color: var(--topbar-color);
 }
 
 .topbar{
@@ -347,7 +355,7 @@ body.dark .switch::before{
 
 
 .topbar .left-nav li a:hover{
-    color: #fff;
+    color: #ff6700;
 }
 
 
@@ -355,7 +363,7 @@ li{
     list-style: none;
 }
 
- a{
+a{
     color: black;
     text-decoration: none;
     display: block;
@@ -523,7 +531,7 @@ img {
 
 /* 设置app下的小三角 */
 /* .app-wrapper:hover>.app::after{ */
-    .app::after{
+.app::after{
     content: '';
     display: none;
     /* 设置绝对定位 */
@@ -602,7 +610,7 @@ img {
 }
 
 .topbar .right-nav .login-nav a:hover{
-    color: #fff;
+    color: #ff6700;
 }
 
 .topbar .right-nav .bookshelf{
@@ -662,7 +670,125 @@ img {
 
 
 
-body.dark .home .text{
+/* body.dark .home .text{
+    color: var(--text-color);
+} */
+
+body.dark .home{
     color: var(--text-color);
 }
 
+
+.showbook{
+    width: 100%;
+    /* background-color: #bfa; */
+    padding: 10px;
+}
+
+.showbook .book-list{
+    width: 100%;
+    /* justify-content: space-around; */
+    /* flex-wrap: wrap; */
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+
+}
+
+.showbook .book-list .book{
+    width: 200px;
+    height: 300px;
+    background-color: var(--topbar-color);
+    box-sizing: border-box;
+}
+
+.showbook .book-list .book:hover{
+    outline: 1px solid rgba(0, 0, 0, .3);
+
+}
+
+.showbook .book-list .book img{
+    width: 198px;
+    height: 200px;
+}
+
+.book .stock{
+    padding-left: 10px;
+    padding-top: 10px;
+    color: red;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 50px;
+}
+
+
+
+.book-bottom{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.book-bottom .book-info{
+    padding-left: 10px;
+}
+
+.book-bottom .book-todo{
+    padding-right: 10px;
+}
+
+.book-bottom .book-info .book-author{
+    margin-top: 5px;
+}
+
+
+
+
+.book-bottom .book-todo .toborrowbook{
+    margin-top: 5px;
+}
+
+.book-bottom .book-todo .toborrowbook a:hover,
+.book-bottom .book-todo .tobookshelf a:hover{
+    color: #ff6700;
+
+}
+
+.page-nav-wrapper{
+    width: 100%;
+    line-height: 50px;
+    /* background-color: springgreen; */
+    background-color: #65c0bb;
+    display: flex;
+    justify-content: center;
+}
+
+.page-nav{
+    width: 60%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-nav .page-info{
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.page-nav .pagination{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.page-nav .pagination .page-item{
+    width: 100%;
+    text-align: center;
+}
+
+
+.page-nav .pagination .page-item:hover{
+    background-color: #fff;
+}
